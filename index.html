@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let score = 0;
+
+        indexing ={
+            "rock":0,
+            "paper":1,
+            "scissors":2
+        }
+        outcomes = [
+            [0,-1,1],
+            [1,0,-1],
+            [-1,1,0]
+        ]
+
+        function getComputerChoice(){
+            choices = ["rock","paper","scissors"];
+            return choices[Math.floor(Math.random()*3)]
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            outcome = outcomes[indexing[playerSelection]][indexing[computerSelection]];
+            result = "";
+            if(outcome>0){
+                result = `You Won!${playerSelection} beats ${computerSelection}`;
+            }else if(outcome<0){
+                result = `You Lose!${computerSelection} beats ${playerSelection}`;
+            }else{
+                result = "its a Tie!";
+            }
+            return result;
+        }
+
+        function game(){
+            const playerSelection = window.prompt("Your Choice")
+            const computerSelection = getComputerChoice();
+            console.log(`Your Choice: ${playerSelection}\nComputer Choice: ${computerSelection}`)
+            console.log(playRound(playerSelection.toLowerCase(), computerSelection))
+            score+=outcomes[indexing[playerSelection]][indexing[computerSelection]];
+        } 
+
+        for (let index = 0; index < 5; index++) {
+            game()
+            
+        }
+        console.log(`Your Final Score ${score}`)
+        
+    </script>
+</body>
+
+</html>

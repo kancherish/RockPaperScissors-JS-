@@ -37,6 +37,7 @@
             if (rounds>=5){
                 if(userScore>computerScore){
                     window.alert("You Won!,Reload Page to play Again");
+                    return;
                     }
                 else if(userScore<computerScore){
                     window.alert("You Lost!,Reload Page to play Again");

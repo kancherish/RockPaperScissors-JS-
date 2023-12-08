@@ -71,8 +71,7 @@
                 game(e.target.textContent)
                 })
             
-        }
-        console.log(`Your Final Score ${score}`)
+           }
         
        
         
